@@ -1,1 +1,1 @@
-web: gunicorn chef_colher_de_pau.wsgi.application --log-file -
+web: gunicorn chef_colher_de_pau.wsgi --log-file -

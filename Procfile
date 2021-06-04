@@ -1,0 +1,1 @@
+web: gunicorn chef_colher_de_pau.wsgi --log-file -

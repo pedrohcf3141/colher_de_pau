@@ -18,3 +18,12 @@ class Receita(models.Model):
 
     def __str__(self) -> str:
         return self.nome_receita
+
+    @property
+    def lista_ingredientes(self):
+        return [ingrediente for ingrediente in self.ingredientes.split('\n') ]
+    
+    @property
+    def lista_passos(self):
+        return [passo for passo in self.modo_preparo.split('\n') ]
+    

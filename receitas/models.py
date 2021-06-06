@@ -27,3 +27,7 @@ class Receita(models.Model):
     def lista_passos(self):
         return [passo for passo in self.modo_preparo.split('\n') ]
     
+    @classmethod
+    def lista_categorias(cls):
+        cat_receitas = [categoria['categoria'] for categoria in cls.objects.values('categoria').distinct()]
+        return cat_receitas

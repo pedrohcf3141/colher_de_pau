@@ -15,8 +15,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form action="#" method="post">
-                    <input type="search" name="search" placeholder="O que está procurando...">
+                <form action="{% url 'buscar' %}" >
+                    <input type="text" name="buscar" placeholder="O que está procurando...">
                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
             </div>
@@ -24,18 +24,16 @@
     </div>
 </div>
 {% include 'partials/menu.html' %}
-
-
-<!-- Receipe Post Search -->
+<!-- Receipe Post Search
 <div class="receipe-post-search mb-80">
     <div class="container">
         <form action="#" method="post">
             <div class="row">
                 <div class="col-12 col-lg-5">
                     <select name="select1" id="select1">
-                        <option value="1">Comida típica brasileira</option>
-                        <option value="1">Massas</option>
-                        <option value="1">Veganas</option>
+                        {% for categoria in cat_receitas%}
+                        <option value="1">{{categoria}}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="col-12 col-lg-2 text-right">
@@ -44,7 +42,7 @@
             </div>
         </form>
     </div>
-</div>
+</div> -->
 
 <!-- Receipe Slider -->
 <div class="container">
@@ -60,11 +58,9 @@
         </div>
     </div>
 </div>
-
 <!-- Receipe Content Area -->
 <div class="receipe-content-area">
     <div class="container">
-
         <div class="row">
             <div class="col-12 col-md-8">
                 <div class="receipe-headline my-5">
@@ -106,9 +102,6 @@
                 </div>
             </div>
         </div>
-        
-
-
             {% include 'partials/footer.html' %}
 
             {% endblock %}

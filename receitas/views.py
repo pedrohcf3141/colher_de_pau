@@ -13,11 +13,12 @@ def index(request):
 
 def receita(request, receita_id):
     receita = get_object_or_404(Receita, pk=receita_id)
-    receitas = Receita.objects.order_by('-criado_em').filter(publicada=True)
+    cat_receitas = Receita.lista_categorias()
     receita_a_exibir = {
-        'receita': receita
+        'receita': receita,
+        'cat_receitas': cat_receitas
     }
-    return render(request, 'receita.html', receita_a_exibir, receitas)
+    return render(request, 'receita.html', receita_a_exibir)
 
 def buscar(request):
     receitas = Receita.objects.order_by('-criado_em').filter(publicada=True)
